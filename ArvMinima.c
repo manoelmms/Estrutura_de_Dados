@@ -39,7 +39,6 @@
         aresta *result = malloc(m * sizeof(aresta));
         int result_size = 0;
         int soma = 0;
-        aresta aux;
         
         for(int i = 0; i < n; i++){
             conj[i] = i;
