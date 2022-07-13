@@ -33,20 +33,22 @@
         
         int n, m, a, b, peso, test1, test2;
         scanf("%d %d", &n, &m);
-        int *conj = malloc(n * sizeof(int));
-        int *rank = malloc(n * sizeof(int));
+        setbuf(stdin, NULL);
+        int *conj = malloc(m * sizeof(int));
+        int *rank = malloc(m * sizeof(int));
         aresta *arestas = malloc(m * sizeof(aresta));
         aresta *result = malloc(m * sizeof(aresta));
         int result_size = 0;
         int soma = 0;
         
-        for(int i = 0; i < n; i++){
+        for(int i = 0; i < m; i++){
             conj[i] = i;
             rank[i] = 0;
         }
 
         for(int i = 0; i < m; i++){
             scanf("%d %d %d", &a, &b, &peso);
+            setbuf(stdin, NULL);
             arestas[i].a = a;
             arestas[i].b = b;
             arestas[i].peso = peso;
@@ -73,7 +75,9 @@
                 result_size++;
                 uniao(conj, rank, arestas[i].a, arestas[i].b);
                 soma += arestas[i].peso;
+                //printf("Soma :%d\n", soma);
             }
         }
         printf("%d\n", soma);
+        return 0;
     }
